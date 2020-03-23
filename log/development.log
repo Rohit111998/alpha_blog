@@ -7691,3 +7691,16 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 30ms (Views: 19.7ms | ActiveRecord: 5.2ms | Allocations: 11985)
 
 
+Started GET "/articles" for ::1 at 2020-03-23 04:04:30 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:3
+  Rendered articles/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1406)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_navigation.html.erb (Duration: 1.3ms | Allocations: 273)
+  Rendered layouts/_messages.html.erb (Duration: 0.8ms | Allocations: 180)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 130)
+Completed 200 OK in 30ms (Views: 28.2ms | ActiveRecord: 0.7ms | Allocations: 8141)
+
+
