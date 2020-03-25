@@ -16783,3 +16783,586 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 25ms (Views: 21.2ms | ActiveRecord: 2.2ms | Allocations: 8451)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4041121399170907065)[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCategories (20200325061015)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.5ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200325061015"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4041121399170907065)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-03-25 02:47:20 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 29ms (ActiveRecord: 10.5ms | Allocations: 6785)
+
+
+Started GET "/articles" for ::1 at 2020-03-25 02:47:20 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:3
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/articles/_article.html.erb:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered articles/_article.html.erb (Duration: 25.5ms | Allocations: 8062)
+  Rendered articles/index.html.erb within layouts/application (Duration: 33.1ms | Allocations: 9593)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_navigation.html.erb (Duration: 1.1ms | Allocations: 705)
+  Rendered layouts/_messages.html.erb (Duration: 0.6ms | Allocations: 190)
+  Rendered layouts/_footer.html.erb (Duration: 0.5ms | Allocations: 133)
+Completed 200 OK in 123ms (Views: 108.5ms | ActiveRecord: 7.0ms | Allocations: 29808)
+
+
+Started GET "/categories" for ::1 at 2020-03-25 02:47:26 -0400
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  Rendered categories/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 67)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.5ms | Allocations: 862)
+  Rendered layouts/_messages.html.erb (Duration: 0.3ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 27)
+Completed 200 OK in 15ms (Views: 12.6ms | ActiveRecord: 0.5ms | Allocations: 6276)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-25 02:47:36 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 67)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.0ms | Allocations: 862)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 27)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.4ms | Allocations: 5905)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-25 02:50:05 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 18.4ms | Allocations: 5910)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 7196)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-25 02:50:12 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1118)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2397)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1 align="center">Create new category</h1>
+
+<%= render 'shared/errors', obj: @category %>
+
+
+<%= form_for(@category, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <div class="form-group">
+        <div class="col-sm-2 col-form-label">
+            <%= f.label :name %>
+        </div>
+        <div class="col-sm-10">
+            <%= f.text_field :name, class:"form-control", placeholder: "Category name", autofocus: true %>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <%= f.submit, class: "btn btn-primary btn-lg" %>
+        </div>
+    </div>
+<% end %>
+<div class="col-xs-4 col-xs-offset-10">
+    [ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
+</div>
+
+):
+1:    <h1 align="center">Create new category</h1>
+2:    
+3:    <%= render 'shared/errors', obj: @category %>
+4:    
+5:    
+6:    <%= form_for(@category, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+7:        <div class="form-group">
+8:            <div class="col-sm-2 col-form-label">
+9:                <%= f.label :name %>
+10:            </div>
+11:            <div class="col-sm-10">
+12:                <%= f.text_field :name, class:"form-control", placeholder: "Category name", autofocus: true %>
+13:            </div>
+14:        </div>
+15:        <div class="form-group">
+16:            <div class="col-sm-offset-2 col-sm-10">
+17:                <%= f.submit, class: "btn btn-primary btn-lg" %>
+18:            </div>
+19:        </div>
+20:    <% end %>
+21:    <div class="col-xs-4 col-xs-offset-10">
+22:        [ <%= link_to "Cancel request and return to articles listing", articles_path %> ]
+23:    </div>
+  
+app/views/categories/new.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+app/views/categories/new.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+app/views/categories/new.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+app/views/categories/new.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+app/views/categories/new.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+app/views/categories/new.html.erb:17: syntax error, unexpected tLABEL, expecting '='
+Started GET "/categories/new" for ::1 at 2020-03-25 02:50:56 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 2.1ms | Allocations: 1701)
+  Rendered categories/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2138)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 3440)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <% if obj.errors.any? %>
+    2:     <div class="row">
+    3:         <div class="col-xs-8 col-xs-offset-2">
+    4:             <div class="panel panel-danger">
+  
+app/views/shared/_errors.html.erb:1
+app/views/categories/new.html.erb:3
+Started GET "/categories/new" for ::1 at 2020-03-25 02:51:40 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered categories/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1188)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 14.6ms | Allocations: 5832)
+  Rendered layouts/_messages.html.erb (Duration: 1.1ms | Allocations: 180)
+  Rendered layouts/_footer.html.erb (Duration: 1.3ms | Allocations: 129)
+Completed 200 OK in 51ms (Views: 35.1ms | ActiveRecord: 9.6ms | Allocations: 15433)
+
+
+Started GET "/" for ::1 at 2020-03-25 02:59:19 -0400
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 13ms (ActiveRecord: 0.9ms | Allocations: 5496)
+
+
+Started GET "/articles" for ::1 at 2020-03-25 02:59:19 -0400
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:3
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/articles/_article.html.erb:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:11
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered articles/_article.html.erb (Duration: 14.7ms | Allocations: 5771)
+  Rendered articles/index.html.erb within layouts/application (Duration: 23.6ms | Allocations: 7155)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_navigation.html.erb (Duration: 1.3ms | Allocations: 676)
+  Rendered layouts/_messages.html.erb (Duration: 0.4ms | Allocations: 180)
+  Rendered layouts/_footer.html.erb (Duration: 0.4ms | Allocations: 129)
+Completed 200 OK in 40ms (Views: 28.3ms | ActiveRecord: 9.3ms | Allocations: 15023)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-25 02:59:42 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.5ms | Allocations: 200)
+  Rendered categories/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1229)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 1.7ms | Allocations: 841)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 27)
+Completed 200 OK in 20ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 9602)
+
+
+Started POST "/categories" for ::1 at 2020-03-25 02:59:45 -0400
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"u9aDrsVqtWWqig4Kf8/bPxChDCpMFwPOKeO1qqSQru7X1RwalyragFjK7RPQWtxlnknHGJDHQNGxyVaO1mJnng==", "category"=>{"name"=>""}, "commit"=>"Create Category"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  Rendering categories/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.5ms | Allocations: 280)
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 906)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.6ms | Allocations: 824)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 22ms (Views: 12.5ms | ActiveRecord: 2.3ms | Allocations: 10103)
+
+
+Started POST "/categories" for ::1 at 2020-03-25 02:59:51 -0400
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"n6HsFMX3g7YoYAfHxlyqy6zYPfgn7HYe/zUL53XHwcnzonOgl7fsU9og5N5pya2RIjD2yvs8NQFnH+jDBzUIuQ==", "category"=>{"name"=>"sports"}, "commit"=>"Create Category"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "sports"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Create (2.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "sports"], ["created_at", "2020-03-25 06:59:51.364244"], ["updated_at", "2020-03-25 06:59:51.364244"]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 10ms (ActiveRecord: 3.8ms | Allocations: 3642)
+
+
+Started GET "/categories" for ::1 at 2020-03-25 02:59:51 -0400
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:3
+  Rendered categories/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 770)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.1ms | Allocations: 836)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 27)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.7ms | Allocations: 6616)
+
+
+Started GET "/categories/1" for ::1 at 2020-03-25 02:59:55 -0400
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 70)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.5ms | Allocations: 862)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 27)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.7ms | Allocations: 5927)
+
+
+Started GET "/categories" for ::1 at 2020-03-25 03:00:38 -0400
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 777)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.5ms | Allocations: 1239)
+  Rendered layouts/_messages.html.erb (Duration: 0.4ms | Allocations: 180)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 129)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.7ms | Allocations: 8488)
+
+
+Started GET "/categories" for ::1 at 2020-03-25 03:18:32 -0400
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 697)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.2ms | Allocations: 882)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 1.2ms | Allocations: 6416)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-25 03:20:56 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.8ms | Allocations: 200)
+  Rendered categories/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1230)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 18.4ms | Allocations: 5820)
+  Rendered layouts/_messages.html.erb (Duration: 1.1ms | Allocations: 185)
+  Rendered layouts/_footer.html.erb (Duration: 1.8ms | Allocations: 129)
+Completed 200 OK in 57ms (Views: 34.9ms | ActiveRecord: 13.8ms | Allocations: 15946)
+
+
+Started POST "/categories" for ::1 at 2020-03-25 03:21:14 -0400
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"HPlQCvq8IG1SFiSGAs6LvdVNa8SyVjkT1SsdtAafL0pw+s++qPxPiKBWx5+tW4znW6Wg9m6GegxNAf6QdG3mOg==", "category"=>{"name"=>"Programming"}, "commit"=>"Create Category"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Programming"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Create (0.9ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Programming"], ["created_at", "2020-03-25 07:21:14.119656"], ["updated_at", "2020-03-25 07:21:14.119656"]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 14ms (ActiveRecord: 4.7ms | Allocations: 3675)
+
+
+Started GET "/categories" for ::1 at 2020-03-25 03:21:14 -0400
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1555)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.4ms | Allocations: 836)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 27)
+Completed 200 OK in 27ms (Views: 24.7ms | ActiveRecord: 1.2ms | Allocations: 7479)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-25 03:21:29 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 625)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 1.8ms | Allocations: 826)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.4ms | Allocations: 6279)
+
+
+Started POST "/categories" for ::1 at 2020-03-25 03:21:36 -0400
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"asb5F+G78JGyJ07dKtEFlujHWYigGhhqWt4C7orCLyUGxWajs/ufdEBnrcSFRALMZi+SunzKW3XC9OHK+DDmVQ==", "category"=>{"name"=>"Books"}, "commit"=>"Create Category"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Books"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Books"], ["created_at", "2020-03-25 07:21:36.582890"], ["updated_at", "2020-03-25 07:21:36.582890"]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 8ms (ActiveRecord: 1.5ms | Allocations: 3562)
+
+
+Started GET "/categories" for ::1 at 2020-03-25 03:21:36 -0400
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1394)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | Allocations: 827)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 26)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.8ms | Allocations: 7142)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-25 03:21:40 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 622)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 3.5ms | Allocations: 826)
+  Rendered layouts/_messages.html.erb (Duration: 0.2ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 26)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.6ms | Allocations: 6279)
+
+
+Started POST "/categories" for ::1 at 2020-03-25 03:21:46 -0400
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"1dyL4pQ8h4/hMS+Bk7Els3QarwgyfPdfFpSLc6cKTlC53xRWxnzoahNxzJg8JCLp+vJkOu6stECOvmhX1fiHIA==", "category"=>{"name"=>"Travel"}, "commit"=>"Create Category"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Travel"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Create (0.5ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Travel"], ["created_at", "2020-03-25 07:21:46.649506"], ["updated_at", "2020-03-25 07:21:46.649506"]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 10ms (ActiveRecord: 1.7ms | Allocations: 3555)
+
+
+Started GET "/categories" for ::1 at 2020-03-25 03:21:46 -0400
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1432)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | Allocations: 827)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 26)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.8ms | Allocations: 7176)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-25 03:21:55 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 622)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 1.6ms | Allocations: 826)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.2ms | Allocations: 6288)
+
+
+Started POST "/categories" for ::1 at 2020-03-25 03:22:03 -0400
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"LdbLAzZNEk0SSbfq0hptCM3MdHS16T1HBA3/IdFk0htB1VS3ZA19qOAJVPN9j2pSQyS/Rmk5flicJxwFo5Ybaw==", "category"=>{"name"=>"Lifestyle"}, "commit"=>"Create Category"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Lifestyle"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Lifestyle"], ["created_at", "2020-03-25 07:22:03.106131"], ["updated_at", "2020-03-25 07:22:03.106131"]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 8ms (ActiveRecord: 1.7ms | Allocations: 3571)
+
+
+Started GET "/categories" for ::1 at 2020-03-25 03:22:03 -0400
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1469)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 1.5ms | Allocations: 827)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 26)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.9ms | Allocations: 7218)
+
+
+Started GET "/categories/1" for ::1 at 2020-03-25 03:22:13 -0400
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 70)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 3.1ms | Allocations: 849)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 27)
+Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 0.5ms | Allocations: 5877)
+
+
+Started GET "/categories/new" for ::1 at 2020-03-25 03:22:16 -0400
+Processing by CategoriesController#new as HTML
+  Rendering categories/new.html.erb within layouts/application
+  Rendered shared/_errors.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered categories/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 625)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 1.9ms | Allocations: 826)
+  Rendered layouts/_messages.html.erb (Duration: 0.0ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.2ms | Allocations: 6287)
+
+
+Started POST "/categories" for ::1 at 2020-03-25 03:22:40 -0400
+Processing by CategoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"o082Zj00xRoRapFkaB4GMyFoRPwpY+S45VwTqv0KCFHPTKnSb3Sq/+Mqcn3HiwFpr4CPzvWzp6d9dvCOj/jBIQ==", "category"=>{"name"=>"Health"}, "commit"=>"Create Category"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "categories" WHERE "categories"."name" = $1 LIMIT $2[0m  [["name", "Health"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[36mCategory Create (0.4ms)[0m  [1m[32mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "Health"], ["created_at", "2020-03-25 07:22:40.166407"], ["updated_at", "2020-03-25 07:22:40.166407"]]
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:12:in `create'
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 9ms (ActiveRecord: 1.7ms | Allocations: 3563)
+
+
+Started GET "/categories" for ::1 at 2020-03-25 03:22:40 -0400
+Processing by CategoriesController#index as HTML
+  Rendering categories/index.html.erb within layouts/application
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2587)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 1.4ms | Allocations: 827)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 26)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.8ms | Allocations: 8333)
+
+
+Started GET "/categories?page=2" for ::1 at 2020-03-25 03:22:42 -0400
+Processing by CategoriesController#index as HTML
+  Parameters: {"page"=>"2"}
+  Rendering categories/index.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 5]]
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1953)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.5ms | Allocations: 827)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 26)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 1.0ms | Allocations: 7663)
+
+
+Started GET "/categories?page=1" for ::1 at 2020-03-25 03:22:43 -0400
+Processing by CategoriesController#index as HTML
+  Parameters: {"page"=>"1"}
+  Rendering categories/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2114)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:6:in `current_user'
+  Rendered layouts/_navigation.html.erb (Duration: 2.3ms | Allocations: 827)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 26)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 1.1ms | Allocations: 7826)
+
+
