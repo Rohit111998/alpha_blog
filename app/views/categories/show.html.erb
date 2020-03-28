@@ -1,4 +1,4 @@
-<h1 align="center"><font face="Times New Roman"><b><%= "Category: " + @category.name %></b></font></h1>
+<h1 align="center"><font face="Times New Roman"><b><%= @category.name %></b></font></h1><br>
 <div align="center">
     <% if logged_in? and current_user.admin? %>
         <span class="badge"><%= link_to "Edit Category Name", edit_category_path(@category) %></span>

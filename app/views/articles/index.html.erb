@@ -1,8 +1,8 @@
-<h1 align="center"><font face="Times New Roman"><b>All articles</b></font></h1>
-<div align="center">
+<h1 align="center"><font face="Times New Roman"><b>All Articles</b></font></h1><br>
+<div class="container pagination justify-content-center">
     <%= will_paginate %>
 </div>
-<%= render 'article', obj: @articles %>
-<div align="center">
+    <%= render 'article', obj: @articles %>
+<div class="container pagination justify-content-center">
     <%= will_paginate %>
 </div>

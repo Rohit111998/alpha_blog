@@ -1,18 +1,22 @@
-<h1 align="center"><font face="Times New Roman"><b>Listing all Categories</b></font></h1>
+<h1 align="center"><font face="Times New Roman"><b>All Categories</b></font></h1><br>
 
 <div align="center">
-    <%= will_paginate %>
+    <div class="container pagination justify-content-center">
+        <%= will_paginate %>
+    </div>
     <% @categories.each do |category| %>
-        <ul classs="listing">
+        <ul class="listing">
             <div class="row">
-                <div class="well col-md-4 col-md-offset-4">
+                <div class="card card-body bg-light col-md-6 offset-md-2" >
                     <li class="article-title">
-                        <%= link_to "#{category.name}", category_path(category) %>
+                        <%= link_to category.name, category_path(category) %>
                     </li>
                     <li><%= pluralize(category.articles.count, "article") %></small></li>
                 </div>
             </div>
         </ul>
     <% end %>
-    <%= will_paginate %>
+    <div class="container pagination justify-content-center">
+        <%= will_paginate %>
+    </div>
 </div>

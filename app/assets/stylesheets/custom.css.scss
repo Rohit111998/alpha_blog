@@ -8,13 +8,7 @@
     letter-spacing: -1px;
     font-weight: bold;
 }
-#whit {
-    color: #fff;
-}
 
-.color-me {
-    color: #fff;
-}
 .dropdown{
     color: #fff;
 }
@@ -35,9 +29,6 @@
 .navbar{
     margin-bottom: 50px;
  }
-.home-bg {
-    background-image: asset-url('space.jpeg');
-}
 
 .jumbotron h1 {
     color: #fff;
@@ -50,6 +41,12 @@
 .btn-xlarge {
 font-size: 1.7em;
 background-color: black;
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
 }
 
 footer {
@@ -116,4 +113,9 @@ margin-left: 15px;
 
 .input_checkbox input{
     width: auto !important;
+}
+
+.label_left {
+    float: left;
+    padding-left: 65px;
 }
